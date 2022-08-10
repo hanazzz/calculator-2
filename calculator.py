@@ -32,3 +32,18 @@ from arithmetic import (add, subtract, multiply, divide, square, cube,
     # else
         # tell user input isn't allowed
     # give user answer (print result)
+
+
+print("This is a prefix calculator.\nThe available operators are:\n+ for addition \n- for subtraction \n* for multiply \n/ for divide \nsquare for square \ncube for cube \npow for power \nmod for modulo")
+
+while True:
+    user_input = input("> ")
+    tokens = user_input.split(' ')
+
+    if tokens[0] == "q":
+        print("Goodbye!")
+        break
+
+
+    print(tokens)
+    break
