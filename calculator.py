@@ -43,7 +43,24 @@ while True:
     if tokens[0] == "q":
         print("Goodbye!")
         break
+    
+    operator = tokens[0]
+    
+    # converting 
+    num1 = tokens[1]
+    try:
+        num1 = float(num1)
+    except:
+        print("Oops, not a number! Please try again.")
+        continue
 
+    # checking for 2nd operand
+    # if 2nd operand- converting to float, error msg if unable 
+    if len(tokens) == 3:
+        num2 = tokens[2]
+        try:
+            num2 = float(num2)
+        except:
+            print("Oops, not a number! Please try again.")
+            continue
 
-    print(tokens)
-    break
