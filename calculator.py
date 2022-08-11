@@ -34,25 +34,32 @@ from arithmetic import (add, subtract, multiply, divide, square, cube,
     # give user answer (print result)
 
 
+
 print("This is a prefix calculator.\nThe available operators are:\n+ for addition \n- for subtraction \n* for multiply \n/ for divide \nsquare for square \ncube for cube \npow for power \nmod for modulo")
 
 while True:
+    tokens = []
     user_input = input("> ")
+    operator_list = ["+", "-", "*", "/", "square", "cube", "pow", "mod"]
     tokens = user_input.split(' ')
+    operator = tokens[0]
 
-    if tokens[0] == "q":
+    if operator == "q":
         print("Goodbye!")
         break
     
-    operator = tokens[0]
-    
-    # converting 
+    if operator not in operator_list:
+        print("You entered an invalid operator!")
+        continue
+
+    # converting 1st operand to float
     num1 = tokens[1]
     try:
         num1 = float(num1)
     except:
         print("Oops, not a number! Please try again.")
         continue
+
 
     # checking for 2nd operand
     # if 2nd operand- converting to float, error msg if unable 
@@ -64,3 +71,28 @@ while True:
             print("Oops, not a number! Please try again.")
             continue
 
+    if operator == "+":
+        result = add(num1, num2)
+    
+    elif operator == "-":
+        result = subtract(num1, num2)
+    
+    elif operator == "*":
+        result = multiply(num1, num2)
+    
+    elif operator == "/":
+        result = divide(num1, num2)
+    
+    elif operator == "square":
+        result = square(num1)
+    
+    elif operator == "cube":
+        result = cube(num1)
+    
+    elif operator == "pow":
+        result = power(num1, num2)
+    
+    elif operator == "mod":
+        result = mod(num1, num2)
+
+    print(result)
